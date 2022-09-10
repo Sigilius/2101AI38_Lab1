@@ -49,7 +49,16 @@ void selectionSort(int arr[], int n)
         swap(&arr[min_idx], &arr[i]);
     }
 }
-
+void bubbleSort(int arr[], int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
+  
+        // Last i elements are already in place
+        for (j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1])
+                swap(&arr[j], &arr[j + 1]);
+}
 
 int main()
 {
@@ -74,7 +83,11 @@ int main()
 	printf("Array after Selection Sort is : \n");
 	printArray(arr, n);
 	break;
-
+	case 3:
+	bubbleSort(arr,n);
+	printf("Array after Bubble Sort is : \n");
+	printArray(arr, n);
+	break;
     default:
       printf("Error! Option chosen is not correct");
 

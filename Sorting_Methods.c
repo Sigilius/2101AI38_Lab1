@@ -59,6 +59,22 @@ void bubbleSort(int arr[], int n)
             if (arr[j] > arr[j + 1])
                 swap(&arr[j], &arr[j + 1]);
 }
+/* l is for left index and r is right index of the
+sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r) {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = l + (r - l) / 2;
+ 
+        // Sort first and second halves
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+ 
+        merge(arr, l, m, r);
+    }
+}
 
 int main()
 {
@@ -90,6 +106,11 @@ int main()
 	break;
     default:
       printf("Error! Option chosen is not correct");
+	case 4:
+	mergeSort(arr,0,n-1);
+	printf("Array after Merge Sort is : \n");
+	printArray(arr, n);
+	break;
 
 	}
 
